@@ -1,0 +1,16 @@
+.page{
+    display: flex;
+    flex-direction: column;
+}
+
+.video-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.publisher-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

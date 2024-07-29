@@ -5,7 +5,7 @@ class DB
     private $dbhost = 'localhost';
     private $dbuser = 'Rafa';
     private $dbpasswd = "1234";
-    private $dbname = "red_social";
+    private $dbname = "plataforma_videos";
 
     private $conexion;
 
@@ -25,7 +25,7 @@ class DB
 
         while ($row = $consulta->fetch_array(MYSQLI_ASSOC)) {
             echo "<div class= 'tarjeta'>";
-            echo "<img src='../posts-pictures/" . $row['archivo'] . "' alt='Post picture' style='width:100%;height:300px;'><br>";
+            echo "<a href='../pages/watch.php?id_user_publisher=" . $row['usuario_id'] . "&id_user=$my_id'><img src='../video-thumbnail/" . $row['miniatura'] . "' alt='Video thumbnail' style='width:100%;height:300px;'></a><br>";
             echo "Titulo: " . $row['titulo'] . "<br>";
             echo "Contenido: " . $row['contenido'] . "<br>";
             echo "<a href='../pages/viewProfile.php?id_user_publisher=" . $row['usuario_id'] . "&id_user=$my_id'><button>Ver perfil</button></a><br>";
@@ -111,6 +111,16 @@ class DB
             $row = mysqli_fetch_assoc($query);
             $foto = $row['foto'];
             return $foto;
+        }
+    }
+
+    public function catchVideo($id){
+        $query = mysqli_query($this->conexion, "SELECT * FROM publicacion where id = '$id'");
+        $num = mysqli_num_rows($query);
+        if ($num == 1) {
+            $row = mysqli_fetch_assoc($query);
+            $video = $row['video'];
+            return $video;
         }
     }
 
