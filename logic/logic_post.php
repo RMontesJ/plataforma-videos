@@ -7,6 +7,7 @@ $DB = new DB();
 
 $title = $_POST['title'];
 $description = $_POST['description'];
+$name = $_POST['name'];
 
 if(isset($_FILES['thumbnail'])){
 
@@ -44,7 +45,7 @@ if(isset($_FILES['video'])){
 // requires title, description and video to post video
 if(isset($title) && isset($description) && isset($video)){
 
-$DB->createPost($title, $description, $thumbnail, $video, $id);
+$DB->createPost($title, $description, $thumbnail, $video, $id, $name);
 }
 
 

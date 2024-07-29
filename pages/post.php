@@ -2,11 +2,6 @@
 
 $id = $_GET['id_user'];
 
-require_once "../DB/DB_Connection.php";
-$DB = new DB();
-
-$name = $DB->catchName($id);
-
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +28,6 @@ $name = $DB->catchName($id);
 
 <div class="input-group">
 <label for="titulo">Titulo</label>
-<input type="hidden" type="text" >
 <input type="text" name="title" id="title" placeholder="Titulo">
 <p id="corregirTitle"></p>
 <label for="descripción">Descripción</label>

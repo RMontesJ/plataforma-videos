@@ -124,8 +124,8 @@ class DB
         }
     }
 
-    public function createPost($title, $description, $miniatura, $video, $id){
-        $insertar = "INSERT INTO publicacion (titulo, contenido, miniatura, video, usuario_id) VALUES ('$title', '$description', '$miniatura', '$video', '$id')";
+    public function createPost($title, $description, $thumbnail, $video, $id){
+        $insertar = "INSERT INTO publicacion (titulo, contenido, miniatura, video, usuario_id) VALUES ('$title', '$description', '$thumbnail', '$video', '$id')";
 
         if (mysqli_query($this->conexion, $insertar)) {
             header("Location: ../pages/main.php?id_user=$id");
