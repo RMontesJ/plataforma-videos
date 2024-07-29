@@ -45,13 +45,13 @@ $picture = $DB->catchPicture($id_publisher);
 <?php include "../includes/nav.php" ?>
 
 <div class="video-box">
-
+<!-- The playing video -->
 <video src="../video-files/<?php echo $video ?>" width="500px" height="400px" controls autoplay>
 
 </video>
 
 <div class="video-info">
-
+<!-- Title of the video -->
 <h1><?php echo $video ?></h1>
 </div>
 
