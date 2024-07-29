@@ -3,13 +3,18 @@
 $id = $_GET['id_user'];
 $id_publisher = $_GET['id_user_publisher'];
 
-
 require_once "../DB/DB_Connection.php";
 $DB = new DB();
 
-$video = $DB->catchVideo($id_publisher);
+// buscar una forma de hacer funcion que coga el video teniendo en cuenta el id de publicacion
+// y el id del usuario que la publica
+
+// coge el nombre del que publica
 $name = $DB->catchName($id_publisher);
+
+// coge la foto del que publica
 $picture = $DB->catchPicture($id_publisher);
+
 
 ?>
 
@@ -35,6 +40,7 @@ $picture = $DB->catchPicture($id_publisher);
 </video>
 
 <div class="video-info">
+
 <h1><?php echo $video ?></h1>
 </div>
 
