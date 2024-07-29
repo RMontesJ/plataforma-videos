@@ -4,10 +4,11 @@ $id = $_GET['id_user'];
 
 require_once "../DB/DB_Connection.php";
 $DB = new DB();
+$name = $DB->catchName($id);
 
 $title = $_POST['title'];
 $description = $_POST['description'];
-$name = $_POST['name'];
+
 
 if(isset($_FILES['thumbnail'])){
 

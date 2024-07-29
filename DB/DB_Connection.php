@@ -26,6 +26,7 @@ class DB
         while ($row = $consulta->fetch_array(MYSQLI_ASSOC)) {
             echo "<div class= 'tarjeta'>";
             echo "<a href='../pages/watch.php?id_user_publisher=" . $row['usuario_id'] . "&id_user=$my_id'><img src='../video-thumbnail/" . $row['miniatura'] . "' alt='Video thumbnail' style='width:100%;height:300px;'></a><br>";
+            echo "Creador: " . $row['usuario_nombre'] . "<br>";
             echo "Titulo: " . $row['titulo'] . "<br>";
             echo "Contenido: " . $row['contenido'] . "<br>";
             echo "<a href='../pages/viewProfile.php?id_user_publisher=" . $row['usuario_id'] . "&id_user=$my_id'><button>Ver perfil</button></a><br>";
@@ -68,8 +69,19 @@ class DB
         }
     }
 
+    public function createPost($title, $description, $thumbnail, $video, $id, $name){
+        $insertar = "INSERT INTO publicacion (titulo, contenido, miniatura, video, usuario_id, usuario_nombre) VALUES ('$title', '$description', '$thumbnail', '$video', '$id', '$name')";
+
+        if (mysqli_query($this->conexion, $insertar)) {
+            header("Location: ../pages/main.php?id_user=$id");
+            exit();
+        } else {
+            echo "Error: " .mysqli_error($this->conexion);
+        }
+    }
+
     public function deletePosts($id){
-        $borrar = "DELETE FROM publicacion WHERE id= '$id'";
+        $borrar = "DELETE * FROM publicacion WHERE id= '$id'";
 
         mysqli_query($this->conexion, $borrar);
     }
@@ -124,17 +136,7 @@ class DB
         }
     }
 
-    public function createPost($title, $description, $thumbnail, $video, $id){
-        $insertar = "INSERT INTO publicacion (titulo, contenido, miniatura, video, usuario_id) VALUES ('$title', '$description', '$thumbnail', '$video', '$id')";
-
-        if (mysqli_query($this->conexion, $insertar)) {
-            header("Location: ../pages/main.php?id_user=$id");
-            exit();
-        } else {
-            echo "Error: " .mysqli_error($this->conexion);
-        }
-    }
-
+    
     public function editProfile($name, $status, $info_extra, $foto, $id){
         $update = "UPDATE usuario SET nombre='$name', estado='$status', info_adicional='$info_extra', foto='$foto' WHERE id = '$id'";
         if (mysqli_query($this->conexion, $update)) {

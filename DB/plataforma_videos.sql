@@ -36,7 +36,8 @@ CREATE TABLE IF NOT EXISTS `publicacion` (
   `contenido` varchar(50) NOT NULL,
   `miniatura` varchar(300) NOT NULL,
   `video` varchar(300) NOT NULL,
-  `usuario_id` int(11) NOT NULL
+  `usuario_id` int(11) NOT NULL,
+  `usuario_nombre` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -59,17 +60,19 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 --
--- Indices de la tabla `publicacion`
+-- Índices de la tabla `publicacion`
 --
 ALTER TABLE `publicacion`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `usuario_id` (`usuario_id`);
+  ADD KEY `usuario_id` (`usuario_id`),
+  ADD KEY `usuario_nombre` (`usuario_nombre`);
 
 --
--- Indices de la tabla `usuario`
+-- Índices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nombre` (`nombre`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -95,7 +98,8 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `publicacion`
 --
 ALTER TABLE `publicacion`
-  ADD CONSTRAINT `fk_publicacion_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`);
+  ADD CONSTRAINT `fk_publicacion_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`),
+  ADD CONSTRAINT `fk_publicacion_usuario_nombre` FOREIGN KEY (`usuario_nombre`) REFERENCES `usuario` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
