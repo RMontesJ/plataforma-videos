@@ -9,7 +9,7 @@ $id = $_GET['id_user'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post</title>
+    <title>Upload video</title>
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/post.css?v=<?php echo time(); ?>">
     <script src="../valid/post.js?v=<?php echo time(); ?>" defer></script>
@@ -24,7 +24,7 @@ $id = $_GET['id_user'];
 
 <form action="../logic/logic_post.php?id_user=<?php echo $id ?>" method="post" id="form" enctype="multipart/form-data">
 
-<h2>Crear publicacion</h2>
+<h2>Crear video</h2>
 
 <div class="input-group">
 <label for="titulo">Titulo</label>

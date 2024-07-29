@@ -85,7 +85,57 @@ class DB
 
         mysqli_query($this->conexion, $borrar);
     }
-// catches your own name
+    
+    public function catchVideoId($id){
+        $query = mysqli_query($this->conexion, "SELECT * FROM publicacion where usuario_id = '$id'");
+        $num = mysqli_num_rows($query);
+        if ($num == 1) {
+            $row = mysqli_fetch_assoc($query);
+            $id_video = $row['id'];
+            return $id_video;
+        }
+    }
+
+    public function catchTitle($id){
+        $query = mysqli_query($this->conexion, "SELECT * FROM publicacion where usuario_id = '$id'");
+        $num = mysqli_num_rows($query);
+        if ($num == 1) {
+            $row = mysqli_fetch_assoc($query);
+            $titulo = $row['titulo'];
+            return $titulo;
+        }
+    }
+
+    public function catchContent($id){
+        $query = mysqli_query($this->conexion, "SELECT * FROM publicacion where usuario_id = '$id'");
+        $num = mysqli_num_rows($query);
+        if ($num == 1) {
+            $row = mysqli_fetch_assoc($query);
+            $contenido = $row['contenido'];
+            return $contenido;
+        }
+    }
+
+    public function catchThumbnail($id){
+        $query = mysqli_query($this->conexion, "SELECT * FROM publicacion where usuario_id = '$id'");
+        $num = mysqli_num_rows($query);
+        if ($num == 1) {
+            $row = mysqli_fetch_assoc($query);
+            $miniatura = $row['miniatura'];
+            return $miniatura;
+        }
+    }
+
+    public function catchVideo($id_video, $title, $content, $thumbnail, $publisherName, $id_publisher){
+        $query = mysqli_query($this->conexion, "SELECT * FROM publicacion where id = '$id_video' and titulo = '$title' and contenido = '$content' and miniatura = '$thumbnail' and usuario_nombre= '$publisherName' and usuario_id = '$id_publisher'");
+        $num = mysqli_num_rows($query);
+        if ($num == 1) {
+            $row = mysqli_fetch_assoc($query);
+            $video = $row['video'];
+            return $video;
+        }
+    }
+
     public function catchName($id){
         $query = mysqli_query($this->conexion, "SELECT * FROM usuario where id = '$id'");
         $num = mysqli_num_rows($query);
@@ -126,17 +176,6 @@ class DB
         }
     }
 
-    public function catchVideo($id){
-        $query = mysqli_query($this->conexion, "SELECT * FROM publicacion where id = '$id'");
-        $num = mysqli_num_rows($query);
-        if ($num == 1) {
-            $row = mysqli_fetch_assoc($query);
-            $video = $row['video'];
-            return $video;
-        }
-    }
-
-    
     public function editProfile($name, $status, $info_extra, $foto, $id){
         $update = "UPDATE usuario SET nombre='$name', estado='$status', info_adicional='$info_extra', foto='$foto' WHERE id = '$id'";
         if (mysqli_query($this->conexion, $update)) {

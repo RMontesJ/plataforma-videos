@@ -6,13 +6,24 @@ $id_publisher = $_GET['id_user_publisher'];
 require_once "../DB/DB_Connection.php";
 $DB = new DB();
 
-// buscar una forma de hacer funcion que coga el video teniendo en cuenta el id de publicacion
-// y el id del usuario que la publica
+ // catches the id of the video
+$id_video = $DB->catchVideoId($id_publisher);
 
-// coge el nombre del que publica
-$name = $DB->catchName($id_publisher);
+// catches the title of the video
+$title_video = $DB->catchTitle($id_publisher);
 
-// coge la foto del que publica
+// catches the content of the video
+$content_video = $DB->catchContent($id_publisher);
+
+// catches the thumbnail of the video
+$thumbnail_video = $DB->catchThumbnail($id_publisher);
+
+// catches the publisher's name of the video
+$name_publisher = $DB->catchName($id_publisher);
+
+$video = $DB->catchVideo($id_video, $title_video, $content_video, $thumbnail_video, $name_publisher, $id_publisher);
+
+// catches the publisher's picture
 $picture = $DB->catchPicture($id_publisher);
 
 
@@ -46,9 +57,9 @@ $picture = $DB->catchPicture($id_publisher);
 
 <div class="publisher-info">
     <div class="publisher-picture">
-    <img src="../profile-pictures/<?php echo $picture ?>" width="80px" height="80px" alt="Publisher picture">
+    <a href="../pages/viewProfile.php?id_user=<?php echo $id ?>&id_user_publisher=<?php echo $id_publisher ?>"><img src="../profile-pictures/<?php echo $picture ?>" width="80px" height="80px" style="border-radius:100%;" alt="Publisher picture"></a>
     </div>
-<h1><?php echo $name ?></h1>
+<h1><?php echo $name_publisher ?></h1>
 </div>
 
 </div>
