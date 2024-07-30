@@ -5,7 +5,7 @@ $id = $_GET['id_user'];
 ?>
 
 <header>
-    <img src="../img/imageMessage.png" alt="Logo message">
+    <img src="../img/play_logo.webp" alt="Logo message">
     <nav>
         <ul>
             <li><a href="../pages/main.php?id_user=<?php echo $id ?>">Inicio</a></li>

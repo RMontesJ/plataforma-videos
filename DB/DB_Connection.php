@@ -21,7 +21,7 @@ class DB
     }
 
     public function showPosts($search, $my_id){
-        $consulta = $this->conexion->query("SELECT * FROM publicacion WHERE id LIKE '%$search%' OR titulo LIKE '%$search%' OR descripcion LIKE '%$search%'");
+        $consulta = $this->conexion->query("SELECT * FROM publicacion WHERE id LIKE '%$search%' OR titulo LIKE '%$search%' OR descripcion LIKE '%$search%' OR usuario_nombre LIKE '%$search%'");
 
         while ($row = $consulta->fetch_array(MYSQLI_ASSOC)) {
             echo "<div class= 'tarjeta'>";
