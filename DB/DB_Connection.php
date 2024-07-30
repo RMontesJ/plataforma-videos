@@ -21,14 +21,14 @@ class DB
     }
 
     public function showPosts($search, $my_id){
-        $consulta = $this->conexion->query("SELECT * FROM publicacion WHERE id LIKE '%$search%' OR titulo LIKE '%$search%' OR contenido LIKE '%$search%'");
+        $consulta = $this->conexion->query("SELECT * FROM publicacion WHERE id LIKE '%$search%' OR titulo LIKE '%$search%' OR descripcion LIKE '%$search%'");
 
         while ($row = $consulta->fetch_array(MYSQLI_ASSOC)) {
             echo "<div class= 'tarjeta'>";
             echo "<a href='../pages/watch.php?id_user_publisher=" . $row['usuario_id'] . "&id_user=$my_id&id_video=" . $row['id'] . "'><img src='../video-thumbnail/" . $row['miniatura'] . "' alt='Video thumbnail' style='width:100%;height:300px;'></a><br>";
             echo "Creador: " . $row['usuario_nombre'] . "<br>";
             echo "Titulo: " . $row['titulo'] . "<br>";
-            echo "Contenido: " . $row['contenido'] . "<br>";
+            echo "Descripcion: " . $row['descripcion'] . "<br>";
             echo "<a href='../pages/viewProfile.php?id_user_publisher=" . $row['usuario_id'] . "&id_user=$my_id'><button>Ver perfil</button></a><br>";
             echo "</div>";
         }
@@ -70,7 +70,7 @@ class DB
     }
 
     public function createPost($title, $description, $thumbnail, $video, $id, $name){
-        $insertar = "INSERT INTO publicacion (titulo, contenido, miniatura, video, usuario_id, usuario_nombre) VALUES ('$title', '$description', '$thumbnail', '$video', '$id', '$name')";
+        $insertar = "INSERT INTO publicacion (titulo, descripcion, miniatura, video, usuario_id, usuario_nombre) VALUES ('$title', '$description', '$thumbnail', '$video', '$id', '$name')";
 
         if (mysqli_query($this->conexion, $insertar)) {
             header("Location: ../pages/main.php?id_user=$id");
@@ -111,7 +111,7 @@ class DB
         $num = mysqli_num_rows($query);
         if ($num == 1) {
             $row = mysqli_fetch_assoc($query);
-            $contenido = $row['contenido'];
+            $contenido = $row['descripcion'];
             return $contenido;
         }
     }
