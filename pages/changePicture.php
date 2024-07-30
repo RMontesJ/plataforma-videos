@@ -12,7 +12,7 @@ $id = $_GET['id_user'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit profile</title>
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/changeProfile.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../css/changePicture.css?v=<?php echo time(); ?>">
     
 </head>
 <body>
@@ -22,7 +22,7 @@ $id = $_GET['id_user'];
 
 <?php include "../includes/nav.php" ?>
 
-<div class="createPost">
+<div class="updatePicture">
 
 <form action="../logic/logic_changePicture.php?id_user=<?php echo $id ?>" method="post" id="form" enctype="multipart/form-data">
 
