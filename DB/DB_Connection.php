@@ -25,7 +25,7 @@ class DB
 
         while ($row = $consulta->fetch_array(MYSQLI_ASSOC)) {
             echo "<div class= 'tarjeta'>";
-            echo "<a href='../pages/watch.php?id_user_publisher=" . $row['usuario_id'] . "&id_user=$my_id'><img src='../video-thumbnail/" . $row['miniatura'] . "' alt='Video thumbnail' style='width:100%;height:300px;'></a><br>";
+            echo "<a href='../pages/watch.php?id_user_publisher=" . $row['usuario_id'] . "&id_user=$my_id&id_video=" . $row['id'] . "'><img src='../video-thumbnail/" . $row['miniatura'] . "' alt='Video thumbnail' style='width:100%;height:300px;'></a><br>";
             echo "Creador: " . $row['usuario_nombre'] . "<br>";
             echo "Titulo: " . $row['titulo'] . "<br>";
             echo "Contenido: " . $row['contenido'] . "<br>";
@@ -126,8 +126,8 @@ class DB
         }
     }
 
-    public function catchVideo($id_video, $title, $content, $thumbnail, $publisherName, $id_publisher){
-        $query = mysqli_query($this->conexion, "SELECT * FROM publicacion where id = '$id_video' and titulo = '$title' and contenido = '$content' and miniatura = '$thumbnail' and usuario_nombre= '$publisherName' and usuario_id = '$id_publisher'");
+    public function catchVideo($id_video, $id_publisher){
+        $query = mysqli_query($this->conexion, "SELECT * FROM publicacion where id = '$id_video' and usuario_id = '$id_publisher'");
         $num = mysqli_num_rows($query);
         if ($num == 1) {
             $row = mysqli_fetch_assoc($query);

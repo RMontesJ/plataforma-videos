@@ -2,26 +2,17 @@
 
 $id = $_GET['id_user'];
 $id_publisher = $_GET['id_user_publisher'];
+$id_video = $_GET['id_video'];
 
 require_once "../DB/DB_Connection.php";
 $DB = new DB();
 
- // catches the id of the video
-$id_video = $DB->catchVideoId($id_publisher);
-
-// catches the title of the video
-$title_video = $DB->catchTitle($id_publisher);
-
-// catches the content of the video
-$content_video = $DB->catchContent($id_publisher);
-
-// catches the thumbnail of the video
-$thumbnail_video = $DB->catchThumbnail($id_publisher);
-
 // catches the publisher's name of the video
 $name_publisher = $DB->catchName($id_publisher);
 
-$video = $DB->catchVideo($id_video, $title_video, $content_video, $thumbnail_video, $name_publisher, $id_publisher);
+$video = $DB->catchVideo($id_video, $id_publisher);
+
+$title = $DB->catchTitle($id_video);
 
 // catches the publisher's picture
 $picture = $DB->catchPicture($id_publisher);
@@ -52,7 +43,7 @@ $picture = $DB->catchPicture($id_publisher);
 
 <div class="video-info">
 <!-- Title of the video -->
-<h1><?php echo $video ?></h1>
+<h1><?php echo $title ?></h1>
 </div>
 
 <div class="publisher-info">
