@@ -31,6 +31,7 @@ $picture = $DB->catchPicture($id);
 
 <div class="picture">
     <img src="../profile-pictures/<?php echo $picture; ?>" alt="My profile picture" style="width:400px;height:300px;">
+    <a href="../pages/changePicture.php?id_user=<?php echo $id ?>"><img src="../icons/edit_Profile_Icon.svg" alt="Edit picture"></a>
 </div>
 
 <div class="name">

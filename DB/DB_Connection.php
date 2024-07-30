@@ -176,8 +176,18 @@ class DB
         }
     }
 
-    public function editProfile($name, $status, $info_extra, $foto, $id){
-        $update = "UPDATE usuario SET nombre='$name', estado='$status', info_adicional='$info_extra', foto='$foto' WHERE id = '$id'";
+    public function editProfile($name, $status, $info_extra, $id){
+        $update = "UPDATE usuario SET nombre='$name', estado='$status', info_adicional='$info_extra' WHERE id = '$id'";
+        if (mysqli_query($this->conexion, $update)) {
+            header("Location: ../pages/myProfile.php?id_user=$id");
+            exit();
+        } else {
+            echo "Error: " .mysqli_error($this->conexion);
+        }
+    }
+
+    public function changePicture($id, $foto){
+        $update = "UPDATE usuario SET foto='$foto' WHERE id = '$id'";
         if (mysqli_query($this->conexion, $update)) {
             header("Location: ../pages/myProfile.php?id_user=$id");
             exit();

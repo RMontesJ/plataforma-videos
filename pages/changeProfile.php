@@ -43,8 +43,6 @@ $extra_info = $DB->catchExtraInfo($id);
 <input type="text" name="status" id="status" value="<?php echo $status ?>" placeholder="Estado nuevo">
 <label for="name">Informacion extra</label>
 <input type="text" name="extra-info" id="extra-info" value="<?php echo $extra_info ?>" placeholder="Informacion extra">
-<label for="foto">Foto</label>
-<input type="file" name="picture" id="picture" placeholder="Foto">
 <div class="form-txt">
 
 </div>

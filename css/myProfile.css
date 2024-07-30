@@ -3,6 +3,12 @@
     flex-direction: row;
 }
 
+.picture{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .infoProfile{
     display: flex;
     flex-direction: column;
