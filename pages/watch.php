@@ -14,6 +14,8 @@ $video = $DB->catchVideo($id_video, $id_publisher);
 
 $title = $DB->catchTitle($id_video);
 
+$description = $DB->catchContent($id_video);
+
 // catches the publisher's picture
 $picture = $DB->catchPicture($id_publisher);
 
@@ -43,7 +45,8 @@ $picture = $DB->catchPicture($id_publisher);
 
 <div class="video-info">
 <!-- Title of the video -->
-<h1><?php echo $title ?></h1>
+<h1><?php echo $title; ?></h1>
+<p><?php echo $description ?></p>
 </div>
 
 <div class="publisher-info">

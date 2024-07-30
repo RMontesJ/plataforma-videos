@@ -97,7 +97,7 @@ class DB
     }
 
     public function catchTitle($id){
-        $query = mysqli_query($this->conexion, "SELECT * FROM publicacion where usuario_id = '$id'");
+        $query = mysqli_query($this->conexion, "SELECT * FROM publicacion where id = '$id'");
         $num = mysqli_num_rows($query);
         if ($num == 1) {
             $row = mysqli_fetch_assoc($query);
@@ -107,7 +107,7 @@ class DB
     }
 
     public function catchContent($id){
-        $query = mysqli_query($this->conexion, "SELECT * FROM publicacion where usuario_id = '$id'");
+        $query = mysqli_query($this->conexion, "SELECT * FROM publicacion where id = '$id'");
         $num = mysqli_num_rows($query);
         if ($num == 1) {
             $row = mysqli_fetch_assoc($query);
