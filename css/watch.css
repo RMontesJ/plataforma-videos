@@ -28,6 +28,7 @@
 
 .title-more-videos{
     text-align: center;
+    margin-top: 70px;
 }
 
 .more-videos{
@@ -35,8 +36,9 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    justify-content: space-between;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 70px;
 }
 
 .tarjeta{
@@ -46,4 +48,5 @@
     flex-wrap: wrap;
     align-items: center;
     border: 1px black solid;
+    margin-top: 50px;
 }
