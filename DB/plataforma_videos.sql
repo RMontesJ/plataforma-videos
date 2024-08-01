@@ -32,8 +32,8 @@ USE `plataforma_videos`;
 
 CREATE TABLE IF NOT EXISTS `publicacion` (
   `id` int(11) NOT NULL,
-  `titulo` varchar(40) NOT NULL,
-  `descripcion` varchar(50) NOT NULL,
+  `titulo` varchar(50) NOT NULL,
+  `descripcion` varchar(150) NOT NULL,
   `miniatura` varchar(300) NOT NULL,
   `video` varchar(300) NOT NULL,
   `usuario_id` int(11) NOT NULL,
