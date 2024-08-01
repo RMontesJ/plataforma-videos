@@ -63,7 +63,7 @@ $picture = $DB->catchPicture($id_publisher);
 
 <div class="more-videos">
     
-<?php echo $more_post = $DB->showMorePosts($id, $id_publisher); ?>
+<?php echo $DB->showMorePosts($id, $id_publisher); ?>
 </div>
 
 </div>
