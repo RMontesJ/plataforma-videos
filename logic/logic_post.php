@@ -15,7 +15,7 @@ $thumbnail = $default_thumbnail;
 
 if(isset($_FILES['thumbnail'])){
 
-if(strpos($thumbnail_type, 'png') || strpos($thumbnail_type, 'jpeg') || strpos($thumbnail_type, 'jpg')){
+if(strpos($thumbnail_type, 'png') || strpos($thumbnail_type, 'jpeg') || strpos($thumbnail_type, 'jpg') || strpos($thumbnail_type, 'webp')){
 
  // Ruta donde se guardará la foto (puedes ajustarla según tu estructura de archivos)
  $ruta_destino = '../video-thumbnail/';
