@@ -19,7 +19,6 @@ $description = $DB->catchContent($id_video);
 // catches the publisher's picture
 $picture = $DB->catchPicture($id_publisher);
 
-
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +42,8 @@ $picture = $DB->catchPicture($id_publisher);
 
 </video>
 
+</div>
+
 <div class="video-info">
 <!-- Title of the video -->
 <h1><?php echo $title; ?></h1>
@@ -56,6 +57,13 @@ $picture = $DB->catchPicture($id_publisher);
 <h1><?php echo $name_publisher ?></h1>
 </div>
 
+<div class="title-more-videos">
+<h1>Mas videos de <?php echo $name_publisher ?></h1>
+</div>
+
+<div class="more-videos">
+    
+<?php echo $more_post = $DB->showMorePosts($id, $id_publisher); ?>
 </div>
 
 </div>

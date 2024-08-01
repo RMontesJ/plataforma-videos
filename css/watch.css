@@ -1,16 +1,48 @@
 .page{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .video-box{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.video-info{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
 }
 
 .publisher-info{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.title-more-videos{
+    text-align: center;
+}
+
+.more-videos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.tarjeta{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
+    border: 1px black solid;
 }
