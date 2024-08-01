@@ -32,6 +32,10 @@ else if($_FILES['picture']['name'] == ""){
     $DB->changePicture($id, $foto);
 }
 
+else{
+    header("Location: ../pages/myProfile.php?id_user=$id");
+}
+
 }
 
 

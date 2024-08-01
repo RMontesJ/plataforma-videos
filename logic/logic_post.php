@@ -28,7 +28,7 @@ if(strpos($thumbnail_type, 'png') || strpos($thumbnail_type, 'jpeg') || strpos($
      // Aquí puedes guardar $nombre_archivo en la base de datos o realizar otras operaciones
      $thumbnail = $nombre_archivo;
  }
-    }
+    }    
 
 
 }
@@ -48,6 +48,9 @@ if (move_uploaded_file($_FILES['video']['tmp_name'], $ruta_destino . $nombre_arc
     $video = $nombre_archivo;
 }
 
+}
+else{
+    header("Location: ../pages/post.php?id_user=$id");
 }
 
 }
