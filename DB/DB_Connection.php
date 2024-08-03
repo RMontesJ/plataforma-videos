@@ -28,7 +28,7 @@ class DB
             echo "<a href='../pages/watch.php?id_user_publisher=" . $row['usuario_id'] . "&id_user=$my_id&id_video=" . $row['id'] . "'><img src='../video-thumbnail/" . $row['miniatura'] . "' alt='Video thumbnail' style='width:100%;height:300px;'></a><br>";
             echo "Creador: " . $row['usuario_nombre'] . "<br>";
             echo "Titulo: " . $row['titulo'] . "<br>";
-            echo "Descripcion: " . $row['descripcion'] . "<br>";
+            echo "Descripción: " . $row['descripcion'] . "<br>";
             echo "<a href='../pages/viewProfile.php?id_user_publisher=" . $row['usuario_id'] . "&id_user=$my_id'><button>Ver perfil</button></a><br>";
             echo "</div>";
         }
@@ -42,7 +42,7 @@ class DB
             echo "<a href='../pages/watch.php?id_user_publisher=" . $row['usuario_id'] . "&id_user=$my_id&id_video=" . $row['id'] . "'><img src='../video-thumbnail/" . $row['miniatura'] . "' alt='Video thumbnail' style='width:100%;height:300px;'></a><br>";
             echo "Creador: " . $row['usuario_nombre'] . "<br>";
             echo "Titulo: " . $row['titulo'] . "<br>";
-            echo "Descripcion: " . $row['descripcion'] . "<br>";
+            echo "Descripción: " . $row['descripcion'] . "<br>";
             echo "</div>";
         }
     }
