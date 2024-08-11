@@ -10,6 +10,7 @@ $id = $_GET['id_user'];
         <ul>
             <li><a href="../pages/main.php?id_user=<?php echo $id ?>">Inicio</a></li>
             <li><a href="../pages/post.php?id_user=<?php echo $id ?>">Crear video</a></li>
+            <li><a href="../pages/profiles.php?id_user=<?php echo $id ?>">Descubrir gente</a></li>
             <li><a href="../pages/myProfile.php?id_user=<?php echo $id ?>">Mi perfil</a></li>
         </ul>
     </nav>
