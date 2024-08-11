@@ -50,6 +50,11 @@ $picture = $DB->catchPicture($id_publisher);
 
 </div>
 
+
+<div class="morePost">
+    <?php echo $DB->showMorePosts($id, $id_publisher) ?>
+</div>
+
 </div>
     
 </body>

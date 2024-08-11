@@ -60,6 +60,10 @@ $picture = $DB->catchPicture($id);
 
 </div>
 
+<div class="morePost">
+    <?php echo $DB->showMyPosts($id) ?>
+</div>
+
 </div>
 
 </body>
