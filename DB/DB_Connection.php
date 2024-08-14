@@ -27,7 +27,7 @@ class DB
             echo "<div class= 'tarjeta'>";
             echo "<a href='../pages/watch.php?id_user_publisher=" . $row['usuario_id'] . "&id_user=$my_id&id_video=" . $row['id'] . "'><img src='../video-thumbnail/" . $row['miniatura'] . "' alt='Video thumbnail' style='width:100%;height:300px;'></a><br>";
             echo "<h1>" . $row['titulo'] . "</h1>" . "<br>";
-            echo "Creador: " . $row['usuario_nombre'] . "<br>";
+            echo "Creador: <a href='../pages/viewProfile.php?id_user=" . $my_id . "&id_user_publisher=" . $row['usuario_id'] . "'>" . $row['usuario_nombre'] . "</a><br>";
             echo "Descripción: " . $row['descripcion'] . "<br>";
             echo "</div>";
         }
@@ -40,7 +40,7 @@ class DB
             echo "<div class= 'tarjeta'>";
             echo "<a href='../pages/watch.php?id_user_publisher=" . $row['usuario_id'] . "&id_user=$my_id&id_video=" . $row['id'] . "'><img src='../video-thumbnail/" . $row['miniatura'] . "' alt='Video thumbnail' style='width:100%;height:300px;'></a><br>";
             echo "<h1>" . $row['titulo'] . "</h1>" . "<br>";
-            echo "Creador: " . $row['usuario_nombre'] . "<br>";
+            echo "Creador: <a href='../pages/viewProfile.php?id_user=" . $my_id . "&id_user_publisher=" . $row['usuario_id'] . "'>" . $row['usuario_nombre'] . "</a><br>";
             echo "Descripción: " . $row['descripcion'] . "<br>";
             echo "</div>";
         }
