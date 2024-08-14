@@ -26,10 +26,9 @@ class DB
         while ($row = $consulta->fetch_array(MYSQLI_ASSOC)) {
             echo "<div class= 'tarjeta'>";
             echo "<a href='../pages/watch.php?id_user_publisher=" . $row['usuario_id'] . "&id_user=$my_id&id_video=" . $row['id'] . "'><img src='../video-thumbnail/" . $row['miniatura'] . "' alt='Video thumbnail' style='width:100%;height:300px;'></a><br>";
+            echo "<h1>" . $row['titulo'] . "</h1>" . "<br>";
             echo "Creador: " . $row['usuario_nombre'] . "<br>";
-            echo "Titulo: " . $row['titulo'] . "<br>";
             echo "Descripción: " . $row['descripcion'] . "<br>";
-            echo "<a href='../pages/viewProfile.php?id_user_publisher=" . $row['usuario_id'] . "&id_user=$my_id'><button>Ver perfil</button></a><br>";
             echo "</div>";
         }
     }
@@ -40,8 +39,8 @@ class DB
         while ($row = $consulta->fetch_array(MYSQLI_ASSOC)) {
             echo "<div class= 'tarjeta'>";
             echo "<a href='../pages/watch.php?id_user_publisher=" . $row['usuario_id'] . "&id_user=$my_id&id_video=" . $row['id'] . "'><img src='../video-thumbnail/" . $row['miniatura'] . "' alt='Video thumbnail' style='width:100%;height:300px;'></a><br>";
+            echo "<h1>" . $row['titulo'] . "</h1>" . "<br>";
             echo "Creador: " . $row['usuario_nombre'] . "<br>";
-            echo "Titulo: " . $row['titulo'] . "<br>";
             echo "Descripción: " . $row['descripcion'] . "<br>";
             echo "</div>";
         }
@@ -53,8 +52,8 @@ class DB
         while ($row = $consulta->fetch_array(MYSQLI_ASSOC)) {
             echo "<div class= 'tarjeta'>";
             echo "<a href='../pages/watch.php?id_user_publisher=" . $row['usuario_id'] . "&id_user=$my_id&id_video=" . $row['id'] . "'><img src='../video-thumbnail/" . $row['miniatura'] . "' alt='Video thumbnail' style='width:100%;height:300px;'></a><br>";
+            echo "<h1>" . $row['titulo'] . "</h1>" . "<br>";
             echo "Creador: " . $row['usuario_nombre'] . "<br>";
-            echo "Titulo: " . $row['titulo'] . "<br>";
             echo "Descripción: " . $row['descripcion'] . "<br>";
             echo "<div class= 'botones'>";
             echo "<a href='../logic/logic_delete_post.php?id_user=$my_id&id_post=" . $row['id'] . "'><img src='../icons/trashCan_Icon.svg' alt='Trash icon'></a>";
