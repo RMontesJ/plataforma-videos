@@ -56,6 +56,9 @@ class DB
             echo "Creador: " . $row['usuario_nombre'] . "<br>";
             echo "Titulo: " . $row['titulo'] . "<br>";
             echo "Descripción: " . $row['descripcion'] . "<br>";
+            echo "<div class= 'botones'>";
+            echo "<a href='../logic/logic_delete_post.php?id_user=$my_id&id_post=" . $row['id'] . "'><img src='../icons/trashCan_Icon.svg' alt='Trash icon'></a>";
+            echo "</div>";
             echo "</div>";
         }
     }
@@ -119,12 +122,17 @@ class DB
         }
     }
 
-    public function deletePosts($id){
-        $borrar = "DELETE * FROM publicacion WHERE id= '$id'";
+    public function deletePost($id_post, $id_user){
+        $delete = "DELETE FROM publicacion WHERE id= '$id_post'";
 
-        mysqli_query($this->conexion, $borrar);
+        if (mysqli_query($this->conexion, $delete)) {
+            header("Location: ../pages/myProfile.php?id_user=$id_user");
+            exit();
+        } else {
+            echo "Error: " .mysqli_error($this->conexion);
+        }
     }
-    
+
     public function catchVideoId($id){
         $query = mysqli_query($this->conexion, "SELECT * FROM publicacion where usuario_id = '$id'");
         $num = mysqli_num_rows($query);
