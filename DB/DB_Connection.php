@@ -68,6 +68,7 @@ class DB
             echo "<a href='../pages/viewProfile.php?id_user=" . $my_id . "&id_user_publisher=" . $row['usuario_id'] . "'>" . $row['usuario_nombre'] . "</a><br>";
             echo "</div>";
             echo "Descripción: " . $row['descripcion'] . "<br>";
+            echo "<a href='../logic/logic_delete_post.php?id_user=". $my_id . "&id_post=" . $row['id'] . "'>"."<img src='../icons/trashCan_Icon.svg'></a>";
             echo "</div>";
         }
     }
