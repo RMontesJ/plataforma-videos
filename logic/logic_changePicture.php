@@ -22,6 +22,7 @@ if (isset($_FILES['picture'])) {
         // Aquí puedes guardar $nombre_archivo en la base de datos o realizar otras operaciones
         $foto = $nombre_archivo;
         $DB->changePicture($id, $foto);
+        $DB->updateUserPicturePost($id, $foto);
     }
 
 }
@@ -30,6 +31,7 @@ else if($_FILES['picture']['name'] == ""){
     $fotoPredeterminada = '../profile-pictures/user-photo-default.webp';
     $foto = $fotoPredeterminada;
     $DB->changePicture($id, $foto);
+    $DB->updateUserPicturePost($id, $foto);
 }
 
 else{

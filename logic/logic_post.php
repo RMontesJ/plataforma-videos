@@ -5,6 +5,7 @@ $id = $_GET['id_user'];
 require_once "../DB/DB_Connection.php";
 $DB = new DB();
 $name = $DB->catchName($id);
+$userPicture = $DB->catchPicture($id);
 
 $title = $_POST['title'];
 $description = $_POST['description'];
@@ -58,7 +59,7 @@ else{
 // requires title, description and video to post video
 if(isset($title) && isset($description) && isset($video)){
 
-$DB->createPost($title, $description, $thumbnail, $video, $id, $name);
+$DB->createPost($title, $description, $thumbnail, $video, $id, $name, $userPicture);
 }
 
 

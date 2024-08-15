@@ -37,7 +37,8 @@ CREATE TABLE IF NOT EXISTS `publicacion` (
   `miniatura` varchar(300) NOT NULL,
   `video` varchar(300) NOT NULL,
   `usuario_id` int(11) NOT NULL,
-  `usuario_nombre` varchar(30) NOT NULL
+  `usuario_nombre` varchar(30) NOT NULL,
+  `usuario_foto` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -65,7 +66,8 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 ALTER TABLE `publicacion`
   ADD PRIMARY KEY (`id`),
   ADD KEY `usuario_id` (`usuario_id`),
-  ADD KEY `usuario_nombre` (`usuario_nombre`);
+  ADD KEY `usuario_nombre` (`usuario_nombre`),
+  ADD KEY `usuario_foto` (`usuario_foto`);
 
 --
 -- Índices de la tabla `usuario`
@@ -99,7 +101,9 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `publicacion`
   ADD CONSTRAINT `fk_publicacion_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`),
-  ADD CONSTRAINT `fk_publicacion_usuario_nombre` FOREIGN KEY (`usuario_nombre`) REFERENCES `usuario` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_publicacion_usuario_nombre` FOREIGN KEY (`usuario_nombre`) REFERENCES `usuario` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_publicacion_usuario_foto` FOREIGN KEY (`usuario_foto`) REFERENCES `usuario` (`foto`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
