@@ -27,54 +27,43 @@ USE `plataforma_videos`;
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(30) NOT NULL,
+  `contrasena` varchar(30) NOT NULL,
+  `estado` varchar(80) NOT NULL,
+  `info_adicional` varchar(150) NOT NULL,
+  `foto` varchar(300) NOT NULL,
+  PRIMARY KEY (`id`, `nombre`, `foto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `publicacion`
 --
 
 CREATE TABLE IF NOT EXISTS `publicacion` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(50) NOT NULL,
   `descripcion` varchar(150) NOT NULL,
   `miniatura` varchar(300) NOT NULL,
   `video` varchar(300) NOT NULL,
   `usuario_id` int(11) NOT NULL,
   `usuario_nombre` varchar(30) NOT NULL,
-  `usuario_foto` varchar(300) NOT NULL
+  `usuario_foto` varchar(300) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `usuario_id` (`usuario_id`),
+  KEY `usuario_nombre` (`usuario_nombre`),
+  KEY `usuario_foto` (`usuario_foto`),
+  CONSTRAINT `fk_publicacion_usuario` FOREIGN KEY (`usuario_id`, `usuario_nombre`, `usuario_foto`)
+    REFERENCES `usuario` (`id`, `nombre`, `foto`)
+    ON DELETE CASCADE 
+    ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuario`
---
-
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(30) NOT NULL,
-  `contrasena` varchar(30) NOT NULL,
-  `estado` varchar(80) NOT NULL,
-  `info_adicional` varchar(150) NOT NULL,
-  `foto` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Índices para tablas volcadas
---
-
---
--- Índices de la tabla `publicacion`
---
-ALTER TABLE `publicacion`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `usuario_id` (`usuario_id`),
-  ADD KEY `usuario_nombre` (`usuario_nombre`),
-  ADD KEY `usuario_foto` (`usuario_foto`);
-
---
--- Índices de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `nombre` (`nombre`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -91,18 +80,6 @@ ALTER TABLE `publicacion`
 --
 ALTER TABLE `usuario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `publicacion`
---
-ALTER TABLE `publicacion`
-  ADD CONSTRAINT `fk_publicacion_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`),
-  ADD CONSTRAINT `fk_publicacion_usuario_nombre` FOREIGN KEY (`usuario_nombre`) REFERENCES `usuario` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_publicacion_usuario_foto` FOREIGN KEY (`usuario_foto`) REFERENCES `usuario` (`foto`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 COMMIT;
 
