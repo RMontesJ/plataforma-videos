@@ -20,7 +20,7 @@ $value = $_POST['search'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main page</title>
+    <title>Discover people</title>
     <link rel="stylesheet" href="../css/nav.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../css/profiles.css?v=<?php echo time(); ?>">
 </head>
