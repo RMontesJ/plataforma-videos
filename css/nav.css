@@ -36,9 +36,14 @@ nav ul li a{
     font-size: larger;
 }
 
-button{
-    width: 100px;
-    height: 50px;
+.profile-logout-box{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.profile-logout-box img{
+border-radius: 100%;
 }
 
 @media(max-width:400px){
