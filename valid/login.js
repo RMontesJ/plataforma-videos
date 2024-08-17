@@ -18,7 +18,7 @@ let corregirPassword = document.getElementById('corregirPassword');
 
 let validar = true
 
-if(name.value.trim() === "" || !/^[a-zA-Z\s]{1,25}$/.test(name.value)){
+if(name.value.trim() === "" || !/^[a-zA-Z\s]{1,25}[^'"]$/.test(name.value)){
     name = document.getElementById('name').style.border = "1px red solid";
     corregirName.style.color = 'red';
     corregirName.innerHTML = "El nombre tiene que tener entre 1 y 25 caracteres, sin caracteres especiales";
@@ -30,7 +30,7 @@ else{
     validar = true;
 }
 
-if(password.value.trim() === "" || !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,}$/.test(password.value)){
+if(password.value.trim() === "" || !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&^'"]{5,}$/.test(password.value)){
     password = document.getElementById('password').style.border = "1px red solid";
     corregirPassword.style.color = 'red';
     corregirPassword.innerHTML = "La contraseña tiene que tener 5 caracteres, una mayuscula, minuscula, numero y caracter especial";

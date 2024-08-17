@@ -15,7 +15,6 @@ $picture = $DB->catchPicture($id);
             <li><a href="../pages/main.php?id_user=<?php echo $id ?>">Inicio</a></li>
             <li><a href="../pages/post.php?id_user=<?php echo $id ?>">Crear video</a></li>
             <li><a href="../pages/profiles.php?id_user=<?php echo $id ?>">Descubrir gente</a></li>
-            <li></li>
         </ul>
     </nav>
     <div class="profile-logout-box">

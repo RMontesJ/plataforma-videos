@@ -35,7 +35,7 @@ $id = $_GET['id_user'];
 <input type="file" name="picture" id="picture" placeholder="Foto">
 
 <div class="form-txt">
-
+<a href="../pages/myProfile.php?id_user=<?php echo $id ?>">Volver a mi perfil</a>
 </div>
 <input class="btn" type="submit" value="Enviar">
 </div>

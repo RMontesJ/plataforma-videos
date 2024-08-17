@@ -44,7 +44,7 @@ $extra_info = $DB->catchExtraInfo($id);
 <label for="name">Informacion extra</label>
 <input type="text" name="extra-info" id="extra-info" value="<?php echo $extra_info ?>" placeholder="Informacion extra">
 <div class="form-txt">
-
+<a href="../pages/myProfile.php?id_user=<?php echo $id ?>">Volver a mi perfil</a>
 </div>
 <input class="btn" type="submit" value="Enviar">
 </div>
